@@ -164,98 +164,126 @@
 
         <!-- Page Content -->
         <div class="p-6 relative z-10" id="pageContent">
-            <div class="mb-8">
-                <div class="flex items-center gap-3 mb-2">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--accent-glow);">
-                        <i class="fas fa-gear" style="color: var(--accent);"></i>
-                    </div>
-                    <div>
-                        <h2 class="text-2xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">Pengaturan Sistem</h2>
-                        <p style="color: var(--text-secondary); font-size: 14px;">Konfigurasi sistem, notifikasi, dan preferensi akun</p>
-                    </div>
-                </div>
+            <div class="mb-8 text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold mb-2 tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">Pengaturan</h2>
+                <p style="color: var(--text-secondary); font-size: 15px;">Kelola profil, pembayaran, dan keamanan akun Anda</p>
             </div>
 
-            <div class="max-w-2xl space-y-6">
-                <div class="chart-card">
-                    <h3 class="text-base font-bold mb-5">Informasi Studio</h3>
-                    <div class="space-y-4">
-                        <div><label class="block text-xs font-medium mb-1.5" style="color: var(--text-secondary);">Nama Studio</label><input type="text" value="Rawframe Studio" class="input-field"></div>
-                        <div><label class="block text-xs font-medium mb-1.5" style="color: var(--text-secondary);">Email</label><input type="email" value="admin@rawframe.id" class="input-field"></div>
-                        <div><label class="block text-xs font-medium mb-1.5" style="color: var(--text-secondary);">Nomor Telepon</label><input type="tel" value="+62 812 3456 7890" class="input-field"></div>
-                        <div><label class="block text-xs font-medium mb-1.5" style="color: var(--text-secondary);">Alamat</label><textarea class="input-field" rows="2">Jl. Sudirman No. 45, Jakarta Pusat</textarea></div>
+            <div class="max-w-2xl mx-auto space-y-6">
+                <!-- Profil Section -->
+                <div class="chart-card !p-8">
+                    <h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+                        <i class="fas fa-user-circle text-orange-500"></i> Profil
+                    </h3>
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-muted);">Nama Lengkap</label>
+                            <input type="text" id="profileName" value="Zachran Razendra" class="input-field !bg-white/5" placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-muted);">Email</label>
+                            <input type="email" id="profileEmail" value="razendrazachran@gmail.com" class="input-field !bg-white/5" placeholder="Masukkan email">
+                        </div>
+                        <button class="btn-primary w-full !py-3.5 mt-2 font-bold" onclick="saveProfile()">
+                            Simpan Perubahan
+                        </button>
                     </div>
                 </div>
-                <div class="chart-card">
-                    <h3 class="text-base font-bold mb-5">Notifikasi</h3>
+
+                <!-- Metode Pembayaran Section -->
+                <div class="chart-card !p-8">
+                    <h3 class="text-lg font-bold mb-2">Metode Pembayaran Booth</h3>
+                    <p class="text-sm mb-8 leading-relaxed" style="color: var(--text-secondary);">
+                        Pilih satu atau lebih metode pembayaran yang tersedia di booth. Minimal satu harus aktif. Jika keduanya aktif, pelanggan akan memilih sendiri saat checkout.
+                    </p>
                     <div class="space-y-4">
-                        
-                        <label class="flex items-center justify-between cursor-pointer group">
-                            <span class="text-sm" style="color: var(--text-secondary);">Notifikasi perangkat offline</span>
-                            <div class="relative">
-                                <input type="checkbox" class="sr-only peer" checked onchange="showToast('Pengaturan notifikasi diperbarui', 'success')">
-                                <div class="w-10 h-5 rounded-full transition-colors peer-checked:bg-orange-500" style="background: var(--border);"></div>
-                                <div class="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-5"></div>
+                        <div class="p-4 rounded-xl border border-orange-500 bg-orange-500/5 group cursor-pointer transition-all hover:bg-orange-500/10" onclick="togglePayment('qris')">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-orange-500 flex items-center justify-center text-white text-xl">
+                                    <i class="fas fa-qrcode"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-white tracking-wide">QRIS</h4>
+                                        <div class="w-10 h-5 rounded-full bg-orange-500 relative transition-colors shadow-inner">
+                                            <div class="absolute top-0.5 right-0.5 w-4 h-4 bg-white rounded-full shadow-sm"></div>
+                                        </div>
+                                    </div>
+                                    <p class="text-[11px] mt-1 pr-8" style="color: var(--text-secondary);">Pelanggan scan QR code untuk membayar via dompet digital / mobile banking</p>
+                                </div>
                             </div>
-                        </label>
-                    
-                        <label class="flex items-center justify-between cursor-pointer group">
-                            <span class="text-sm" style="color: var(--text-secondary);">Notifikasi transaksi gagal</span>
-                            <div class="relative">
-                                <input type="checkbox" class="sr-only peer" checked onchange="showToast('Pengaturan notifikasi diperbarui', 'success')">
-                                <div class="w-10 h-5 rounded-full transition-colors peer-checked:bg-orange-500" style="background: var(--border);"></div>
-                                <div class="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-5"></div>
+                        </div>
+                        <div class="p-4 rounded-xl border border-white/10 bg-white/5 group cursor-pointer transition-all hover:border-white/20" onclick="togglePayment('voucher')">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-gray-400 text-xl">
+                                    <i class="fas fa-ticket"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-bold text-gray-400 tracking-wide">Voucher</h4>
+                                        <div class="w-10 h-5 rounded-full bg-white/10 relative transition-colors">
+                                            <div class="absolute top-0.5 left-0.5 w-4 h-4 bg-white/20 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <p class="text-[11px] mt-1 pr-8" style="color: var(--text-muted);">Pelanggan memasukkan kode voucher yang sudah dibeli sebelumnya</p>
+                                </div>
                             </div>
-                        </label>
-                    
-                        <label class="flex items-center justify-between cursor-pointer group">
-                            <span class="text-sm" style="color: var(--text-secondary);">Laporan harian via email</span>
-                            <div class="relative">
-                                <input type="checkbox" class="sr-only peer"  onchange="showToast('Pengaturan notifikasi diperbarui', 'success')">
-                                <div class="w-10 h-5 rounded-full transition-colors peer-checked:bg-orange-500" style="background: var(--border);"></div>
-                                <div class="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-5"></div>
-                            </div>
-                        </label>
-                    
-                        <label class="flex items-center justify-between cursor-pointer group">
-                            <span class="text-sm" style="color: var(--text-secondary);">Peringatan langganan expiry</span>
-                            <div class="relative">
-                                <input type="checkbox" class="sr-only peer" checked onchange="showToast('Pengaturan notifikasi diperbarui', 'success')">
-                                <div class="w-10 h-5 rounded-full transition-colors peer-checked:bg-orange-500" style="background: var(--border);"></div>
-                                <div class="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-5"></div>
-                            </div>
-                        </label>
-                    
-                        <label class="flex items-center justify-between cursor-pointer group">
-                            <span class="text-sm" style="color: var(--text-secondary);">Update sistem baru</span>
-                            <div class="relative">
-                                <input type="checkbox" class="sr-only peer"  onchange="showToast('Pengaturan notifikasi diperbarui', 'success')">
-                                <div class="w-10 h-5 rounded-full transition-colors peer-checked:bg-orange-500" style="background: var(--border);"></div>
-                                <div class="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform peer-checked:translate-x-5"></div>
-                            </div>
-                        </label>
-                    
+                        </div>
                     </div>
                 </div>
-                <div class="chart-card">
-                    <h3 class="text-base font-bold mb-5">Keamanan</h3>
+
+                <!-- Tripay Section -->
+                <div class="chart-card !p-8">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-lg font-bold">Tripay - Pembayaran Booth</h3>
+                        <span class="badge badge-warning text-[9px] uppercase tracking-tighter">
+                            <i class="fas fa-circle-dot mr-1 animate-pulse"></i> Belum dikonfigurasi
+                        </span>
+                    </div>
+                    <p class="text-sm mb-8 leading-relaxed" style="color: var(--text-secondary);">
+                        Kredensial Tripay untuk menerima pembayaran QRIS dari pelanggan di booth Anda. Daftarkan merchant di tripay.co.id.
+                    </p>
                     <div class="space-y-4">
-                        <div><label class="block text-xs font-medium mb-1.5" style="color: var(--text-secondary);">Password Lama</label><input type="password" placeholder="Masukkan password lama" class="input-field"></div>
-                        <div><label class="block text-xs font-medium mb-1.5" style="color: var(--text-secondary);">Password Baru</label><input type="password" placeholder="Masukkan password baru" class="input-field"></div>
-                        <div><label class="block text-xs font-medium mb-1.5" style="color: var(--text-secondary);">Konfirmasi Password</label><input type="password" placeholder="Ulangi password baru" class="input-field"></div>
-                        <button class="btn-primary" onclick="showToast('Password berhasil diubah', 'success')">Ubah Password</button>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-muted);">Merchant Code</label>
+                            <input type="text" class="input-field !bg-white/5 font-mono" placeholder="Contoh: T12345">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-muted);">API Key</label>
+                            <input type="password" class="input-field !bg-white/5 font-mono" placeholder="Masukkan API Key">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-muted);">Private Key</label>
+                            <input type="password" class="input-field !bg-white/5 font-mono" placeholder="Masukkan Private Key">
+                        </div>
+                        <button class="btn-primary w-full !py-3.5 mt-2 font-bold" onclick="showToast('Konfigurasi Tripay berhasil diperbarui', 'success')">
+                            Simpan Pengaturan Tripay
+                        </button>
                     </div>
                 </div>
-                <button class="btn-primary" onclick="showToast('Semua pengaturan berhasil disimpan', 'success')">
-                    <i class="fas fa-check mr-2 text-xs"></i>Simpan Semua Perubahan
-                </button>
-            </div>
+
+                <!-- Security Section -->
+                <div class="chart-card !p-8">
+                    <h3 class="text-lg font-bold mb-6">Keamanan</h3>
+                    <div class="p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all cursor-pointer flex items-center justify-between" onclick="showToast('Menu ubah password belum tersedia', 'info')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-gray-400">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white uppercase tracking-wide">Ubah Password</h4>
+                                <p class="text-[11px] mt-0.5" style="color: var(--text-muted);">Ganti password akun Anda secara berkala</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-600 text-xs"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
     <script src="js/data.js"></script>
     <script src="js/utils.js"></script>
-</body>
+    <script src="js/pages/pengaturan.js"></script>
 
 </html>
