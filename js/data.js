@@ -86,3 +86,9 @@ const activities = [
     { icon: 'fa-triangle-exclamation', color: '#F59E0B', bg: 'rgba(245,158,11,0.1)', text: 'Kertas Booth Epsilon hampir habis', time: '34 menit lalu' },
     { icon: 'fa-receipt', color: '#3B82F6', bg: 'rgba(59,130,246,0.1)', text: 'Pembayaran Rp 450.000 berhasil', time: '1 jam lalu' },
 ];
+
+const subscriptionHistory = [
+    { device: 'Trial Device', code: 'TRIAL-NWRLHU', duration: '1 Bulan', amount: 0, status: 'Aktif', expiry: '5/4/2026', date: '2 Apr 2026, 21.12' },
+    { device: 'Booth Alpha', code: 'ALPH-123456', duration: '12 Bulan', amount: 420000, status: 'Selesai', expiry: '12/12/2026', date: '12 Dec 2025, 09.45' },
+    { device: 'Booth Beta', code: 'BETA-987654', duration: '6 Bulan', amount: 240000, status: 'Selesai', expiry: '15/10/2026', date: '15 Apr 2026, 11.20' },
+];
