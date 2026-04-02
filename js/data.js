@@ -1,13 +1,40 @@
-// === DATA ===
 const transactions = [
-    { id: 'TRX-0891', device: 'Booth Alpha', package: 'Premium 4R', amount: 45000, status: 'success', time: '14:32' },
-    { id: 'TRX-0890', device: 'Booth Beta', package: 'Standard 2R', amount: 25000, status: 'success', time: '14:28' },
-    { id: 'TRX-0889', device: 'Booth Gamma', package: 'Digital Only', amount: 15000, status: 'pending', time: '14:15' },
-    { id: 'TRX-0888', device: 'Booth Delta', package: 'Premium 4R', amount: 45000, status: 'success', time: '14:02' },
-    { id: 'TRX-0887', device: 'Booth Alpha', package: 'Paket Couple', amount: 65000, status: 'success', time: '13:48' },
-    { id: 'TRX-0886', device: 'Booth Epsilon', package: 'Standard 2R', amount: 25000, status: 'failed', time: '13:35' },
-    { id: 'TRX-0885', device: 'Booth Zeta', package: 'Digital Only', amount: 15000, status: 'success', time: '13:21' },
-    { id: 'TRX-0884', device: 'Booth Beta', package: 'Premium 4R', amount: 45000, status: 'success', time: '13:10' },
+    { 
+        id: 'cmnhr9bg7281', 
+        time: '3 Apr 2026, 00.35', 
+        device: 'Trial Device', 
+        amount: 0, 
+        status: 'success', 
+        photoSession: 'completed', 
+        result: 'https://picsum.photos/seed/rf1/200/300' 
+    },
+    { 
+        id: 'cmnhkd72wlkj', 
+        time: '2 Apr 2026, 21.22', 
+        device: 'Trial Device', 
+        amount: 0, 
+        status: 'success', 
+        photoSession: 'capturing', 
+        result: null 
+    },
+    { 
+        id: 'cmnhkbv9po12', 
+        time: '2 Apr 2026, 21.21', 
+        device: 'Trial Device', 
+        amount: 0, 
+        status: 'success', 
+        photoSession: 'completed', 
+        result: 'https://picsum.photos/seed/rf3/200/300' 
+    },
+    { 
+        id: 'cmnhk3psxs89', 
+        time: '2 Apr 2026, 21.14', 
+        device: 'Trial Device', 
+        amount: 0, 
+        status: 'success', 
+        photoSession: 'completed', 
+        result: 'https://picsum.photos/seed/rf4/200/300' 
+    },
 ];
 
 const devices = [

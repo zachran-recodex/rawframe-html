@@ -164,36 +164,73 @@
 
         <!-- Page Content -->
         <div class="p-6 relative z-10" id="pageContent">
-            <div class="mb-8">
-                <div class="flex items-center gap-3 mb-2">
+            <div class="flex items-center justify-between mb-8">
+                <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--accent-glow);">
                         <i class="fas fa-receipt" style="color: var(--accent);"></i>
                     </div>
                     <div>
-                        <h2 class="text-2xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">Riwayat Transaksi</h2>
-                        <p style="color: var(--text-secondary); font-size: 14px;">Lihat seluruh riwayat transaksi dan laporan keuangan</p>
+                        <h2 class="text-2xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">Transaksi</h2>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Log aktivitas transaksi photobooth</p>
                     </div>
+                </div>
+                <button class="btn-ghost text-xs !py-2 !px-4 border border-white/10" onclick="showToast('Laporan transaksi diexport ke CSV', 'success')">
+                    <i class="fas fa-file-csv mr-2 tracking-wide"></i> Export CSV
+                </button>
+            </div>
+
+            <!-- Stat Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                <div class="stat-card">
+                    <p class="text-[10px] uppercase font-bold tracking-wider mb-1" style="color: var(--text-muted);">Total Halaman Ini</p>
+                    <p class="text-2xl font-bold font-space" id="totalAmountDisplay">Rp 0</p>
+                </div>
+                <div class="stat-card">
+                    <p class="text-[10px] uppercase font-bold tracking-wider mb-1" style="color: var(--text-muted);">Jumlah Transaksi</p>
+                    <p class="text-2xl font-bold font-space" id="totalCountDisplay">0</p>
+                </div>
+                <div class="stat-card">
+                    <p class="text-[10px] uppercase font-bold tracking-wider mb-1" style="color: var(--text-muted);">Halaman</p>
+                    <p class="text-2xl font-bold font-space">1 / 1</p>
                 </div>
             </div>
 
+            <!-- Filters -->
             <div class="flex flex-wrap items-center gap-3 mb-6">
-                <div class="search-box flex-1 max-w-xs"><i class="fas fa-search"></i><input type="text" placeholder="Cari ID transaksi..." class="input-field" style="background: var(--bg-card);"></div>
-                <select class="input-field !w-auto !py-2"><option>Semua Status</option><option>Berhasil</option><option>Pending</option><option>Gagal</option></select>
-                <select class="input-field !w-auto !py-2"><option>Hari Ini</option><option>7 Hari</option><option>30 Hari</option><option>Custom</option></select>
-                <button class="btn-ghost text-xs !py-2" onclick="showToast('Laporan transaksi diexport ke CSV', 'success')"><i class="fas fa-download mr-1"></i>Export</button>
+                <div class="search-box flex-1 max-w-xs">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="transactionSearch" placeholder="Cari transaksi..." class="input-field" onkeyup="filterTransactions()">
+                </div>
+                <select class="input-field !w-auto !py-2" id="statusFilter" onchange="filterTransactions()">
+                    <option value="all">Semua Status</option>
+                    <option value="success">Berhasil</option>
+                    <option value="pending">Pending</option>
+                    <option value="failed">Gagal</option>
+                </select>
             </div>
-            <div class="chart-card mb-4">
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                    <div><p class="text-xs" style="color: var(--text-muted);">Total Pendapatan</p><p class="text-lg font-bold mt-1" style="font-family: 'Space Grotesk';">Rp 28.450.000</p></div>
-                    <div><p class="text-xs" style="color: var(--text-muted);">Jumlah Transaksi</p><p class="text-lg font-bold mt-1" style="font-family: 'Space Grotesk';">1.024</p></div>
-                    <div><p class="text-xs" style="color: var(--text-muted);">Rata-rata/Transaksi</p><p class="text-lg font-bold mt-1" style="font-family: 'Space Grotesk';">Rp 27.783</p></div>
-                    <div><p class="text-xs" style="color: var(--text-muted);">Tingkat Keberhasilan</p><p class="text-lg font-bold mt-1" style="font-family: 'Space Grotesk';">96.8%</p></div>
+
+            <!-- Table Section -->
+            <div class="chart-card">
+                <div class="overflow-x-auto">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Waktu</th>
+                                <th>Device</th>
+                                <th>Jumlah</th>
+                                <th>Status</th>
+                                <th>Sesi Foto</th>
+                                <th>Hasil</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionBody">
+                            <!-- Rows will be injected by JS -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="chart-card">
-                <div style="height: 250px;"><canvas id="transaksiChart"></canvas></div>
-            </div>
-            </div>
+        </div>
         </div>
     </main>
 
