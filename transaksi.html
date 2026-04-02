@@ -62,7 +62,7 @@
         <nav class="flex-1 py-4 overflow-y-auto">
             <p class="px-8 mb-2 text-[10px] font-semibold tracking-widest uppercase" style="color: var(--text-muted);">
                 Menu Utama</p>
-            <a href="index.html" class="nav-item active">
+            <a href="index.html" class="nav-item">
                 <i class="fas fa-border-all"></i>
                 <span>Dashboard</span>
             </a>
@@ -75,7 +75,7 @@
                 <i class="fas fa-crown"></i>
                 <span>Langganan</span>
             </a>
-            <a href="transaksi.html" class="nav-item">
+            <a href="transaksi.html" class="nav-item active">
                 <i class="fas fa-receipt"></i>
                 <span>Transaksi</span>
                 <span class="ml-auto w-2 h-2 rounded-full" style="background: var(--accent);"></span>
@@ -164,243 +164,35 @@
 
         <!-- Page Content -->
         <div class="p-6 relative z-10" id="pageContent">
-            <!-- Page Header -->
             <div class="mb-8">
-                <h2 class="text-2xl font-bold mb-1" style="font-family: 'Space Grotesk', sans-serif;">Selamat Datang
-                    Kembali</h2>
-                <p style="color: var(--text-secondary); font-size: 14px;">Berikut ringkasan operasional photobooth kamu
-                    hari ini</p>
-            </div>
-
-            <!-- Stat Cards -->
-            <div class="stat-grid grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
-                style="grid-template-columns: repeat(4, 1fr);">
-                <div class="stat-card">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center"
-                            style="background: rgba(255, 107, 43, 0.1);">
-                            <i class="fas fa-wallet" style="color: var(--accent);"></i>
-                        </div>
-                        <span class="badge badge-success"><i class="fas fa-arrow-up text-[9px]"></i> 12.5%</span>
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: var(--accent-glow);">
+                        <i class="fas fa-receipt" style="color: var(--accent);"></i>
                     </div>
-                    <p class="text-[12px] font-medium mb-1" style="color: var(--text-muted);">Pendapatan Hari Ini</p>
-                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';">Rp 4.280.000</p>
-                    <div class="progress-bar mt-3">
-                        <div class="progress-fill" style="width: 71%; background: var(--accent);"></div>
-                    </div>
-                    <p class="text-[11px] mt-1" style="color: var(--text-muted);">71% dari target harian</p>
-                </div>
-
-                <div class="stat-card">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center"
-                            style="background: rgba(34, 197, 94, 0.1);">
-                            <i class="fas fa-receipt" style="color: var(--success);"></i>
-                        </div>
-                        <span class="badge badge-success"><i class="fas fa-arrow-up text-[9px]"></i> 8.3%</span>
-                    </div>
-                    <p class="text-[12px] font-medium mb-1" style="color: var(--text-muted);">Total Transaksi</p>
-                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';">156</p>
-                    <div class="progress-bar mt-3">
-                        <div class="progress-fill" style="width: 85%; background: var(--success);"></div>
-                    </div>
-                    <p class="text-[11px] mt-1" style="color: var(--text-muted);">Rata-rata Rp 27.436/transaksi</p>
-                </div>
-
-                <div class="stat-card">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center"
-                            style="background: rgba(59, 130, 246, 0.1);">
-                            <i class="fas fa-desktop" style="color: #3B82F6;"></i>
-                        </div>
-                        <span class="badge badge-warning"><i class="fas fa-minus text-[9px]"></i> 0%</span>
-                    </div>
-                    <p class="text-[12px] font-medium mb-1" style="color: var(--text-muted);">Perangkat Aktif</p>
-                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';">12 <span
-                            class="text-sm font-normal" style="color: var(--text-muted);">/ 15</span></p>
-                    <div class="progress-bar mt-3">
-                        <div class="progress-fill" style="width: 80%; background: #3B82F6;"></div>
-                    </div>
-                    <p class="text-[11px] mt-1" style="color: var(--text-muted);">3 perangkat offline</p>
-                </div>
-
-                <div class="stat-card">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-10 h-10 rounded-xl flex items-center justify-center"
-                            style="background: rgba(168, 85, 247, 0.1);">
-                            <i class="fas fa-crown" style="color: #A855F7;"></i>
-                        </div>
-                        <span class="badge badge-success"><i class="fas fa-arrow-up text-[9px]"></i> 4.1%</span>
-                    </div>
-                    <p class="text-[12px] font-medium mb-1" style="color: var(--text-muted);">Langganan Aktif</p>
-                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';">89</p>
-                    <div class="progress-bar mt-3">
-                        <div class="progress-fill" style="width: 62%; background: #A855F7;"></div>
-                    </div>
-                    <p class="text-[11px] mt-1" style="color: var(--text-muted);">14 berakhir minggu ini</p>
-                </div>
-            </div>
-
-            <!-- Charts Row -->
-            <div class="chart-grid grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8" style="grid-template-columns: 2fr 1fr;">
-                <!-- Revenue Chart -->
-                <div class="chart-card">
-                    <div class="flex items-center justify-between mb-6">
-                        <div>
-                            <h3 class="text-base font-bold">Pendapatan Mingguan</h3>
-                            <p class="text-xs mt-1" style="color: var(--text-muted);">Perbandingan minggu ini vs minggu
-                                lalu</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <button class="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
-                                style="background: var(--accent-glow); color: var(--accent);" id="chartWeek"
-                                onclick="switchChart('week')">Minggu</button>
-                            <button
-                                class="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors hover:bg-white/5"
-                                style="color: var(--text-muted);" id="chartMonth"
-                                onclick="switchChart('month')">Bulan</button>
-                        </div>
-                    </div>
-                    <div style="height: 260px;">
-                        <canvas id="revenueChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Doughnut Chart -->
-                <div class="chart-card">
-                    <div class="mb-6">
-                        <h3 class="text-base font-bold">Sumber Pendapatan</h3>
-                        <p class="text-xs mt-1" style="color: var(--text-muted);">Distribusi bulan ini</p>
-                    </div>
-                    <div style="height: 180px;" class="flex items-center justify-center">
-                        <canvas id="sourceChart"></canvas>
-                    </div>
-                    <div class="mt-4 space-y-2">
-                        <div class="flex items-center justify-between text-xs">
-                            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm"
-                                    style="background: var(--accent);"></span><span
-                                    style="color: var(--text-secondary);">Foto Cetak</span></div>
-                            <span class="font-semibold">48%</span>
-                        </div>
-                        <div class="flex items-center justify-between text-xs">
-                            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm"
-                                    style="background: #3B82F6;"></span><span
-                                    style="color: var(--text-secondary);">Digital File</span></div>
-                            <span class="font-semibold">28%</span>
-                        </div>
-                        <div class="flex items-center justify-between text-xs">
-                            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm"
-                                    style="background: #A855F7;"></span><span
-                                    style="color: var(--text-secondary);">Paket Premium</span></div>
-                            <span class="font-semibold">16%</span>
-                        </div>
-                        <div class="flex items-center justify-between text-xs">
-                            <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm"
-                                    style="background: var(--text-muted);"></span><span
-                                    style="color: var(--text-secondary);">Lainnya</span></div>
-                            <span class="font-semibold">8%</span>
-                        </div>
+                    <div>
+                        <h2 class="text-2xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">Riwayat Transaksi</h2>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Lihat seluruh riwayat transaksi dan laporan keuangan</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Quick Actions -->
-            <div class="mb-8">
-                <h3 class="text-base font-bold mb-4">Aksi Cepat</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
-                    <div class="quick-action" onclick="openAddDeviceModal()">
-                        <div class="icon-wrap" style="background: rgba(255, 107, 43, 0.1); color: var(--accent);">
-                            <i class="fas fa-plus"></i>
-                        </div>
-                        <span class="text-xs font-medium" style="color: var(--text-secondary);">Perangkat Baru</span>
-                    </div>
-                    <div class="quick-action" onclick="openVoucherModal()">
-                        <div class="icon-wrap" style="background: rgba(34, 197, 94, 0.1); color: var(--success);">
-                            <i class="fas fa-ticket"></i>
-                        </div>
-                        <span class="text-xs font-medium" style="color: var(--text-secondary);">Buat Voucher</span>
-                    </div>
-                    <div class="quick-action" onclick="showToast('Laporan sedang digenerate...', 'info')">
-                        <div class="icon-wrap" style="background: rgba(59, 130, 246, 0.1); color: #3B82F6;">
-                            <i class="fas fa-file-export"></i>
-                        </div>
-                        <span class="text-xs font-medium" style="color: var(--text-secondary);">Export Laporan</span>
-                    </div>
-                    <div class="quick-action" onclick="showToast('Frame berhasil diupload', 'success')">
-                        <div class="icon-wrap" style="background: rgba(168, 85, 247, 0.1); color: #A855F7;">
-                            <i class="fas fa-crop-simple"></i>
-                        </div>
-                        <span class="text-xs font-medium" style="color: var(--text-secondary);">Upload Frame</span>
-                    </div>
-                    <div class="quick-action" onclick="showToast('Notifikasi terkirim ke semua pelanggan', 'success')">
-                        <div class="icon-wrap" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);">
-                            <i class="fas fa-paper-plane"></i>
-                        </div>
-                        <span class="text-xs font-medium" style="color: var(--text-secondary);">Kirim Promo</span>
-                    </div>
-                    <div class="quick-action"
-                        onclick="navigateTo(document.querySelector('[data-page=pengaturan]'), 'pengaturan')">
-                        <div class="icon-wrap" style="background: rgba(153, 153, 153, 0.1); color: var(--text-muted);">
-                            <i class="fas fa-gear"></i>
-                        </div>
-                        <span class="text-xs font-medium" style="color: var(--text-secondary);">Pengaturan</span>
-                    </div>
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+                <div class="search-box flex-1 max-w-xs"><i class="fas fa-search"></i><input type="text" placeholder="Cari ID transaksi..." class="input-field" style="background: var(--bg-card);"></div>
+                <select class="input-field !w-auto !py-2"><option>Semua Status</option><option>Berhasil</option><option>Pending</option><option>Gagal</option></select>
+                <select class="input-field !w-auto !py-2"><option>Hari Ini</option><option>7 Hari</option><option>30 Hari</option><option>Custom</option></select>
+                <button class="btn-ghost text-xs !py-2" onclick="showToast('Laporan transaksi diexport ke CSV', 'success')"><i class="fas fa-download mr-1"></i>Export</button>
+            </div>
+            <div class="chart-card mb-4">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                    <div><p class="text-xs" style="color: var(--text-muted);">Total Pendapatan</p><p class="text-lg font-bold mt-1" style="font-family: 'Space Grotesk';">Rp 28.450.000</p></div>
+                    <div><p class="text-xs" style="color: var(--text-muted);">Jumlah Transaksi</p><p class="text-lg font-bold mt-1" style="font-family: 'Space Grotesk';">1.024</p></div>
+                    <div><p class="text-xs" style="color: var(--text-muted);">Rata-rata/Transaksi</p><p class="text-lg font-bold mt-1" style="font-family: 'Space Grotesk';">Rp 27.783</p></div>
+                    <div><p class="text-xs" style="color: var(--text-muted);">Tingkat Keberhasilan</p><p class="text-lg font-bold mt-1" style="font-family: 'Space Grotesk';">96.8%</p></div>
                 </div>
             </div>
-
-            <!-- Bottom Grid: Transactions + Devices + Activity -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                <!-- Recent Transactions -->
-                <div class="chart-card lg:col-span-2">
-                    <div class="flex items-center justify-between mb-5">
-                        <div>
-                            <h3 class="text-base font-bold">Transaksi Terbaru</h3>
-                            <p class="text-xs mt-1" style="color: var(--text-muted);">10 transaksi terakhir hari ini</p>
-                        </div>
-                        <button class="btn-ghost text-xs !py-2 !px-3"
-                            onclick="navigateTo(document.querySelector('[data-page=transaksi]'), 'transaksi')">
-                            Lihat Semua <i class="fas fa-arrow-right ml-1 text-[10px]"></i>
-                        </button>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Perangkat</th>
-                                    <th>Paket</th>
-                                    <th>Nominal</th>
-                                    <th>Status</th>
-                                    <th>Waktu</th>
-                                </tr>
-                            </thead>
-                            <tbody id="transactionBody">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Right Column -->
-                <div class="space-y-4">
-                    <!-- Device Status -->
-                    <div class="chart-card">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-base font-bold">Status Perangkat</h3>
-                            <button class="text-xs font-medium transition-colors hover:opacity-80"
-                                style="color: var(--accent);"
-                                onclick="navigateTo(document.querySelector('[data-page=perangkat]'), 'perangkat')">Detail</button>
-                        </div>
-                        <div class="space-y-3" id="deviceList">
-                        </div>
-                    </div>
-
-                    <!-- Recent Activity -->
-                    <div class="chart-card">
-                        <h3 class="text-base font-bold mb-4">Aktivitas Terbaru</h3>
-                        <div id="activityList">
-                        </div>
-                    </div>
-                </div>
+            <div class="chart-card">
+                <div style="height: 250px;"><canvas id="transaksiChart"></canvas></div>
+            </div>
             </div>
         </div>
     </main>
