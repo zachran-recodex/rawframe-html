@@ -71,9 +71,26 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// === SIDEBAR STATS ===
+function updateSidebarStats() {
+    // Update Device Badge
+    const deviceBadge = document.querySelector('.nav-item i.fa-desktop + span.badge');
+    if (deviceBadge && typeof devices !== 'undefined') {
+        const totalDevices = devices.length;
+        deviceBadge.textContent = totalDevices;
+    }
+
+    // Update Transaction Dot (Active Indicator)
+    const transactionDot = document.querySelector('.nav-item i.fa-receipt + span + span.rounded-full');
+    if (transactionDot && typeof transactions !== 'undefined') {
+        // Just ensure it's there or logic for highlighting
+    }
+}
+
 // === INIT GLOBAL ELEMENTS ===
 document.addEventListener('DOMContentLoaded', () => {
     setCurrentDate();
+    updateSidebarStats();
 
     // Animasi progress bar saat load
     setTimeout(() => {
