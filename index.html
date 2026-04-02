@@ -184,7 +184,7 @@
                         <span class="badge badge-success"><i class="fas fa-arrow-up text-[9px]"></i> 12.5%</span>
                     </div>
                     <p class="text-[12px] font-medium mb-1" style="color: var(--text-muted);">Pendapatan Hari Ini</p>
-                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';">Rp 4.280.000</p>
+                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';" id="statRevenue">Rp 0</p>
                     <div class="progress-bar mt-3">
                         <div class="progress-fill" style="width: 71%; background: var(--accent);"></div>
                     </div>
@@ -200,7 +200,7 @@
                         <span class="badge badge-success"><i class="fas fa-arrow-up text-[9px]"></i> 8.3%</span>
                     </div>
                     <p class="text-[12px] font-medium mb-1" style="color: var(--text-muted);">Total Transaksi</p>
-                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';">156</p>
+                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';" id="statTransactions">0</p>
                     <div class="progress-bar mt-3">
                         <div class="progress-fill" style="width: 85%; background: var(--success);"></div>
                     </div>
@@ -216,8 +216,8 @@
                         <span class="badge badge-warning"><i class="fas fa-minus text-[9px]"></i> 0%</span>
                     </div>
                     <p class="text-[12px] font-medium mb-1" style="color: var(--text-muted);">Perangkat Aktif</p>
-                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';">12 <span
-                            class="text-sm font-normal" style="color: var(--text-muted);">/ 15</span></p>
+                    <p class="text-2xl font-bold count-animate" style="font-family: 'Space Grotesk';" id="statDevices">0 <span
+                            class="text-sm font-normal" style="color: var(--text-muted);">/ 0</span></p>
                     <div class="progress-bar mt-3">
                         <div class="progress-fill" style="width: 80%; background: #3B82F6;"></div>
                     </div>
@@ -368,7 +368,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Perangkat</th>
-                                    <th>Paket</th>
+                                    <th>Sesi Foto</th>
                                     <th>Nominal</th>
                                     <th>Status</th>
                                     <th>Waktu</th>

@@ -20,15 +20,19 @@ function renderTransactions() {
         <tr>
             <td><span class="font-mono text-xs font-semibold" style="color: var(--text-primary);">${t.id}</span></td>
             <td style="color: var(--text-primary);">${t.device}</td>
-            <td>${t.package}</td>
+            <td>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10 uppercase font-medium" style="color: var(--text-secondary);">
+                    ${t.photoSession}
+                </span>
+            </td>
             <td class="font-semibold" style="color: var(--text-primary);">Rp ${t.amount.toLocaleString('id-ID')}</td>
             <td>
-                <span class="badge badge-${t.status === 'success' ? 'success' : t.status === 'pending' ? 'warning' : 'danger'}">
+                <span class="badge badge-${t.status === 'success' ? 'success' : t.status === 'pending' ? 'warning' : 'danger'} text-[10px]">
                     <span class="status-dot ${t.status === 'success' ? 'online' : t.status === 'pending' ? 'idle' : 'offline'}"></span>
                     ${t.status === 'success' ? 'Berhasil' : t.status === 'pending' ? 'Pending' : 'Gagal'}
                 </span>
             </td>
-            <td>${t.time}</td>
+            <td><span class="text-xs">${t.time}</span></td>
         </tr>
     `).join('');
 }
@@ -40,7 +44,7 @@ function renderDevices() {
         <div class="device-card" onclick="showToast('Detail ${d.name} — ${d.sessions} sesi hari ini', 'info')">
             <div class="flex items-center justify-between mb-2">
                 <div class="flex items-center gap-2">
-                    <span class="status-dot ${d.status}"></span>
+                    <span class="status-dot ${d.status === 'online' ? 'online' : 'offline'}"></span>
                     <span class="text-sm font-semibold">${d.name}</span>
                 </div>
                 <span class="text-[11px] font-medium" style="color: var(--text-muted);">${d.sessions} sesi</span>
@@ -48,6 +52,21 @@ function renderDevices() {
             <p class="text-[11px]" style="color: var(--text-muted);">${d.location}</p>
         </div>
     `).join('');
+}
+
+function updateSummaryStats() {
+    const totalTransactions = transactions.length;
+    const totalRevenue = transactions.reduce((sum, t) => sum + (t.status === 'success' ? t.amount : 0), 0);
+    const activeDevices = devices.filter(d => d.status === 'online').length;
+    const totalDevices = devices.length;
+
+    const revEl = document.getElementById('statRevenue');
+    const transEl = document.getElementById('statTransactions');
+    const devEl = document.getElementById('statDevices');
+
+    if (revEl) revEl.textContent = `Rp ${totalRevenue.toLocaleString('id-ID')}`;
+    if (transEl) transEl.textContent = totalTransactions.toLocaleString('id-ID');
+    if (devEl) devEl.innerHTML = `${activeDevices} <span class="text-sm font-normal" style="color: var(--text-muted);">/ ${totalDevices}</span>`;
 }
 
 function renderActivities() {
@@ -219,6 +238,7 @@ function switchChart(period) {
 }
 
 function initDashboard() {
+    updateSummaryStats();
     renderTransactions();
     renderDevices();
     renderActivities();
